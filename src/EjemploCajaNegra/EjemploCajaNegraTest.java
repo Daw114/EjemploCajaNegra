@@ -235,5 +235,18 @@ class EjemploCajaNegraTest {
 		System.setOut(sysOutBackup);
 		assertTrue(outContent.toString().indexOf("Ha insertado letras en la indicación del segundo número. Cerramos el programa")>0);
 	}
+	@Test
+	void CP18() /*Esto de purba mal para que aparezca en git*/{
+		InputStream sysInBackup = System.in; 
+		PrintStream sysOutBackup = System.out;
+		ByteArrayInputStream in = new ByteArrayInputStream("divisores\n18\nAdios\n".getBytes());
+		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+		System.setIn(in);
+		System.setOut(new PrintStream(outContent));
+		MyFunction.AmigosDivisores();
+		System.setIn(sysInBackup);
+		System.setOut(sysOutBackup);
+		assertTrue(outContent.toString().indexOf("Ha insertado letras en la indicación del segundo número. Cerramos el programa")>0);
+	}
 
 }
